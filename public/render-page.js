@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("/Users/aayushjain/projects/artista/node_modules/lodash/merge.js"), require("react"), require("react-dom/server"));
+		module.exports = factory(require("/Users/aayushjain/projects/artista/node_modules/lodash/merge.js"), require("react"), require("react-dom/server"), require("react-helmet"));
 	else if(typeof define === 'function' && define.amd)
-		define("lib", ["/Users/aayushjain/projects/artista/node_modules/lodash/merge.js", "react", "react-dom/server"], factory);
+		define("lib", ["/Users/aayushjain/projects/artista/node_modules/lodash/merge.js", "react", "react-dom/server", "react-helmet"], factory);
 	else if(typeof exports === 'object')
-		exports["lib"] = factory(require("/Users/aayushjain/projects/artista/node_modules/lodash/merge.js"), require("react"), require("react-dom/server"));
+		exports["lib"] = factory(require("/Users/aayushjain/projects/artista/node_modules/lodash/merge.js"), require("react"), require("react-dom/server"), require("react-helmet"));
 	else
-		root["lib"] = factory(root["/Users/aayushjain/projects/artista/node_modules/lodash/merge.js"], root["react"], root["react-dom/server"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_lodash_merge__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__) {
+		root["lib"] = factory(root["/Users/aayushjain/projects/artista/node_modules/lodash/merge.js"], root["react"], root["react-dom/server"], root["react-helmet"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_lodash_merge__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_helmet__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -103,7 +103,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var plugins = []; // During bootstrap, we write requires at top of this file which looks like:
+var plugins = [{
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr */ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
+}]; // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
 //     plugin: require("/path/to/plugin1/gatsby-ssr.js"),
@@ -559,6 +564,44 @@ Html = Html && Html.__esModule ? Html.default : Html;
   htmlStr = "<!DOCTYPE html>" + htmlStr;
   callback(null, htmlStr);
 });
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.onRenderBody = void 0;
+
+var _reactHelmet = __webpack_require__(/*! react-helmet */ "react-helmet");
+
+var onRenderBody = function onRenderBody(_ref) {
+  var setHeadComponents = _ref.setHeadComponents,
+      setHtmlAttributes = _ref.setHtmlAttributes,
+      setBodyAttributes = _ref.setBodyAttributes;
+
+  var helmet = _reactHelmet.Helmet.renderStatic(); // These action functions were added partway through the Gatsby 1.x cycle.
+
+
+  if (setHtmlAttributes) {
+    setHtmlAttributes(helmet.htmlAttributes.toComponent());
+  }
+
+  if (setBodyAttributes) {
+    setBodyAttributes(helmet.bodyAttributes.toComponent());
+  }
+
+  setHeadComponents([helmet.title.toComponent(), helmet.link.toComponent(), helmet.meta.toComponent(), helmet.noscript.toComponent(), helmet.script.toComponent(), helmet.style.toComponent(), helmet.base.toComponent()]);
+};
+
+exports.onRenderBody = onRenderBody;
 
 /***/ }),
 
@@ -1671,6 +1714,17 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;
+
+/***/ }),
+
+/***/ "react-helmet":
+/*!*******************************!*\
+  !*** external "react-helmet" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_react_helmet__;
 
 /***/ })
 

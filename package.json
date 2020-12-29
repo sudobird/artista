@@ -12,10 +12,17 @@
   },
   "dependencies": {
     "gatsby": "^2.26.1",
+    "gatsby-image": "^2.7.0",
+    "gatsby-plugin-react-helmet": "^3.6.0",
     "gatsby-plugin-sass": "^2.7.0",
+    "gatsby-plugin-sharp": "^2.10.1",
+    "gatsby-source-filesystem": "^2.7.0",
+    "gatsby-transformer-sharp": "^2.8.0",
+    "highlight.js": "^10.4.1",
     "node-sass": "^4.14.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0"
   },
   "repository": {
     "type": "git",
@@ -26,5 +33,6 @@
   "bugs": {
     "url": "https://github.com/sudobird/artista/issues"
   },
-  "homepage": "https://github.com/sudobird/artista#readme"
+  "homepage": "https://github.com/sudobird/artista#readme",
+  "devDependencies": {}
 }
