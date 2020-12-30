@@ -78,12 +78,14 @@ const CarouselComp = () => {
 }
 `
 
-export default props => {
+export default () => {
 
   return (
     <BlogLayout seoParams={seoParams}>
       <div className='article'>
-        <h1>Simple Carousel using smooth Javascript scrolling!</h1><br/>
+        <h1>Simple Carousel using smooth Javascript scrolling!</h1>
+        <div style={{color: 'gray', fontSize: '16px'}}>December 10, 2020 &#9679; 3 min read </div>
+        <br/>
 
         <div className='para'>
           There are various ways to implement carousel which give you more control on the animation.

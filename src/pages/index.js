@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import "./index.scss";
 import { Link } from "gatsby";
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 
 export default ({data}) => {
@@ -10,7 +11,7 @@ export default ({data}) => {
 
 	return (
 		<div className="app-wrapper">
-
+			<SEO/>
 
 			Hello world! {data.pokemon.name}
 			<br/>

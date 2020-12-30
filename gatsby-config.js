@@ -6,15 +6,29 @@
 const path = require('path');
 
 module.exports = {
-  /* Your site config here */
   plugins: [
-    "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-ZZQLWE04YW",
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: path.join(__dirname, `static`),
       },
     },
+    "gatsby-plugin-sass",
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet'
