@@ -28,7 +28,9 @@ module.exports = {
         path: path.join(__dirname, `static`),
       },
     },
+    'gatsby-plugin-sitemap',
     "gatsby-plugin-sass",
+    "gatsby-plugin-image",
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet'
@@ -36,7 +38,7 @@ module.exports = {
   siteMetadata: {
     title: "Sudo bird",
     description: "",
-    url: "https://sudobird.com",
+    siteUrl: "https://sudobird.com",
     image: "",
     social: {
       twitter: 'isthisaayush',

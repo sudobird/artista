@@ -1,14 +1,19 @@
 import React, { useRef, useState } from "react"
-import BlogLayout from "../../components/blog-layout"
-import Block from "../../components/block"
-import CodeBlock from "../../components/code-highlighter"
+import BlogLayout from "../../../../components/blog-layout"
+import Note from "../../../../components/note"
+import Block from "../../../../components/block"
+import CodeBlock from "../../../../components/code-highlighter"
+import SimpleCarouselUsingJsScrollingWrapper from "./styles"
+import { StaticImage } from "gatsby-plugin-image"
 
+
+const carouselImgPath = "/images/carousel-slider.png"
 
 const seoParams = {
   title: "Simple Carousel using Javascript scrolling",
   description: "A very simple implementation of horizontal carousel using scrolling function in Javascript.",
-  image: '/images/carousel-slider.png',
-  urlPath: '/blog/simple-carousel-using-javascript-scrolling',
+  image: carouselImgPath,
+  urlPath: "/blog/tech/simple-carousel-using-javascript-scrolling",
   article: true
 }
 
@@ -78,74 +83,71 @@ const CarouselComp = () => {
 }
 `
 
-export default () => {
+const SimpleCarouselUsingJsScrolling = () => {
 
   return (
-    <BlogLayout seoParams={seoParams}>
-      <div className='article'>
-        <h1>Simple Carousel using smooth Javascript scrolling!</h1>
-        <div style={{color: 'gray', fontSize: '16px'}}>December 10, 2020 &#9679; 3 min read </div>
+    <SimpleCarouselUsingJsScrollingWrapper>
+      <BlogLayout seoParams={seoParams}
+                  title='Simple Carousel using smooth Javascript scrolling!' date='December 10, 2020' read={3}>
         <br/>
 
-        <div className='para'>
+        <Block>
           There are various ways to implement carousel which give you more control on the animation.
           I discovered a really simple way to implement carousel by triggering scrolling function and its perfect for
           simple use cases.
-        </div>
+        </Block>
 
-        <div className='para'><CarouselComp/></div>
+        <Block><CarouselComp/></Block>
 
-        <div className='para'>
+        <Block>
           We'll maintain the index of component/image in view to bring next element into view and we can disable next
           and previous buttons on edges.
           Onn click of any of those buttons we'll take that element and call this
           function. <strong>inline</strong> parameter is for horizontal scrolling. There's another
           parameter <strong>block</strong> which you can experiment with.
-        </div>
+        </Block>
 
-        <div className='para'><CodeBlock code={scrollIntoViewFunc} language='javascript'/></div>
+        <Block><CodeBlock code={scrollIntoViewFunc} language='javascript'/></Block>
 
-        <div className='para'><Block type='info'><strong>Note:</strong> Important parameter here is smooth behavior
-          which makes this cool animation possible.</Block></div>
+        <Block><Note type='info'><strong>Note:</strong> Important parameter here is smooth behavior
+          which makes this cool animation possible.</Note></Block>
 
-        <div className='para'>
+        <Block>
           Make a container div with scroll auto, display flex and add some elements to it. When you are satisfied with
           your
           normal scrolling design, set <strong>overflow to hidden.</strong> This is important cause we'll do that on
           button clicks and of course we don't
           involuntary mouse scrolls.
-        </div>
+        </Block>
 
-        <div className='para'>
-          <img src='/images/carousel-slider.png' className='image' alt='carousel-slider'/>
-        </div>
+        <Block><StaticImage src={`../../../../../static${carouselImgPath}`} alt='carousel'/></Block>
 
-        <div className='para'>
+        <Block>
           <CodeBlock code={carouselContainerStyles} language='css'/>
-        </div>
+        </Block>
 
-        <div className='para'>
+        <Block>
           Then on next or previous click, get the DOM element and call scrollIntoView on the element with right
           parameters according to your carousel alignment.
-        </div>
+        </Block>
 
-        <div className='para'>
+        <Block>
           <CodeBlock code={nextClickedCode} language='javascript'/>
-        </div>
-        <div className='para'>
-          <Block type='info'>
+        </Block>
+        <Block>
+          <Note type='info'>
             I've used ref on the container and then accessed its children using the index. In Angular it can be achieved
             using @ViewChildren.
-          </Block>
-        </div>
+          </Note>
+        </Block>
 
-        <div className='para'>Here's the full code of this simple carousel component.</div>
+        <Block>Here's the full code of this simple carousel component.</Block>
 
-        <div className='para'>
+        <Block>
           <CodeBlock code={carouselCompCode} language='javascript'/>
-        </div>
-      </div>
-    </BlogLayout>
+        </Block>
+      </BlogLayout>
+    </SimpleCarouselUsingJsScrollingWrapper>
   )
 }
 
@@ -174,23 +176,26 @@ const CarouselComp = () => {
   }
 
   return (
-    <div className='carousel-comp'>
-      <div className='carousel-container' ref={containerRef}>
-        <div className='carousel-item' style={{ "background": "linear-gradient(to right, #134e5e, #71b280)" }}>0</div>
-        <div className='carousel-item' style={{ "background": "linear-gradient(to right, #614385, #516395)" }}>1</div>
-        <div className='carousel-item' style={{ "background": "linear-gradient(to right, #1f1c2c, #928dab)" }}>2</div>
-        <div className='carousel-item' style={{ "background": "linear-gradient(to right, #16222a, #3a6073)" }}>3</div>
-        <div className='carousel-item' style={{ "background": "linear-gradient(to right, #1d2b64, #f8cdda)" }}>4</div>
-      </div>
+    <SimpleCarouselUsingJsScrollingWrapper>
+      <div className='carousel-comp'>
+        <div className='carousel-container' ref={containerRef}>
+          <div className='carousel-item' style={{ "background": "linear-gradient(to right, #134e5e, #71b280)" }}>0</div>
+          <div className='carousel-item' style={{ "background": "linear-gradient(to right, #614385, #516395)" }}>1</div>
+          <div className='carousel-item' style={{ "background": "linear-gradient(to right, #1f1c2c, #928dab)" }}>2</div>
+          <div className='carousel-item' style={{ "background": "linear-gradient(to right, #16222a, #3a6073)" }}>3</div>
+          <div className='carousel-item' style={{ "background": "linear-gradient(to right, #1d2b64, #f8cdda)" }}>4</div>
+        </div>
 
-      <div className='carousel-actions'>
-        <i className="fas fa-caret-square-left" onClick={previousClicked} onKeyDown={handleKeyDown} role='button'
-           tabIndex={0} aria-label="previous"></i>
-        <i className="fas fa-caret-square-right" onClick={nextClicked} onKeyDown={handleKeyDown} role='button'
-           tabIndex={0} aria-label="next"></i>
+        <div className='carousel-actions'>
+          <i className="fas fa-caret-square-left" onClick={previousClicked} onKeyDown={handleKeyDown} role='button'
+             tabIndex={0} aria-label="previous"></i>
+          <i className="fas fa-caret-square-right" onClick={nextClicked} onKeyDown={handleKeyDown} role='button'
+             tabIndex={0} aria-label="next"></i>
+        </div>
       </div>
-    </div>
+    </SimpleCarouselUsingJsScrollingWrapper>
   )
 }
 
 
+export default SimpleCarouselUsingJsScrolling

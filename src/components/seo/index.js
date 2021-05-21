@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ title, description, image, article, urlPath }) => {
 
@@ -56,7 +56,7 @@ const query = graphql`
             siteMetadata {
                 defaultTitle: title
                 defaultDescription: description
-                siteUrl: url
+                siteUrl
                 defaultImage: image
                 social {
                     twitter
