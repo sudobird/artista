@@ -3,7 +3,7 @@ import hljs from "highlight.js/lib/core"
 import "highlight.js/styles/github.css"
 import CodeHighlighterWrapper from "./styles"
 
-const Index = ({ code, language }) => {
+const CodeHighlighter = ({ code, language }) => {
   const nodeRef = useRef()
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const Index = ({ code, language }) => {
   )
 }
 
-export default Index
+export default CodeHighlighter

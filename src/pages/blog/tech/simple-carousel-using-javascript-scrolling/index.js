@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import BlogLayout from "../../../../components/blog-layout"
 import Note from "../../../../components/note"
 import Block from "../../../../components/block"
-import CodeBlock from "../../../../components/code-highlighter"
+import CodeHighlighter from "../../../../components/code-highlighter"
 import SimpleCarouselUsingJsScrollingWrapper from "./styles"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -107,7 +107,7 @@ const SimpleCarouselUsingJsScrolling = () => {
           parameter <strong>block</strong> which you can experiment with.
         </Block>
 
-        <Block><CodeBlock code={scrollIntoViewFunc} language='javascript'/></Block>
+        <Block><CodeHighlighter code={scrollIntoViewFunc} language='javascript'/></Block>
 
         <Block><Note type='info'><strong>Note:</strong> Important parameter here is smooth behavior
           which makes this cool animation possible.</Note></Block>
@@ -123,7 +123,7 @@ const SimpleCarouselUsingJsScrolling = () => {
         <Block><StaticImage src={`../../../../../static${carouselImgPath}`} alt='carousel'/></Block>
 
         <Block>
-          <CodeBlock code={carouselContainerStyles} language='css'/>
+          <CodeHighlighter code={carouselContainerStyles} language='css'/>
         </Block>
 
         <Block>
@@ -132,7 +132,7 @@ const SimpleCarouselUsingJsScrolling = () => {
         </Block>
 
         <Block>
-          <CodeBlock code={nextClickedCode} language='javascript'/>
+          <CodeHighlighter code={nextClickedCode} language='javascript'/>
         </Block>
         <Block>
           <Note type='info'>
@@ -144,7 +144,7 @@ const SimpleCarouselUsingJsScrolling = () => {
         <Block>Here's the full code of this simple carousel component.</Block>
 
         <Block>
-          <CodeBlock code={carouselCompCode} language='javascript'/>
+          <CodeHighlighter code={carouselCompCode} language='javascript'/>
         </Block>
       </BlogLayout>
     </SimpleCarouselUsingJsScrollingWrapper>
