@@ -11,6 +11,11 @@ const HomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  
+  a {
+    color: darkcyan;
+    text-decoration: none;
+  }
 `;
 
 const Home = () => {
@@ -20,12 +25,11 @@ const Home = () => {
 
       <div className="app-wrapper">
         <h1>Every day is a choice!</h1>
-        <h2>Do the difficult thing!</h2>
-
-        <Link to={"/blog/tech/simple-carousel-using-javascript-scrolling"}>carousel</Link>
+        <br/>
+        <p><Link to={"/blog/tech/simple-carousel-using-javascript-scrolling"}>Carousel</Link></p>
+        <p><Link to={"/blog/tech/react-library-from-scratch-webpack-babel-and-npm-publish"}>Create React Library</Link></p>
       </div>
     </HomeWrapper>
-
   )
 }
 

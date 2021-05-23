@@ -88,7 +88,7 @@ const SimpleCarouselUsingJsScrolling = () => {
   return (
     <SimpleCarouselUsingJsScrollingWrapper>
       <BlogLayout seoParams={seoParams}
-                  title='Simple Carousel using smooth Javascript scrolling!' date='December 10, 2020' read={3}>
+                  title={seoParams.title} date='December 10, 2020' read={3}>
         <br/>
 
         <Block>

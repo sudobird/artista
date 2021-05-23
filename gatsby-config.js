@@ -28,6 +28,7 @@ module.exports = {
         path: path.join(__dirname, `static`),
       },
     },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-sitemap',
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
